@@ -1,6 +1,6 @@
 cask "mergeiq" do
-  version "0.2.1"
-  sha256 "ad855c8a8a563501fe9775f7c070e6a306dc341bb7480a3224fa82ffc9fa01b1"
+  version "0.2.2"
+  sha256 "b43cdf443851499a3623a59853b255344c09eb9bd4d23e2b71f1db97663b9b90"
 
   url "https://github.com/karthikkumararun/mergeIQ/releases/download/v#{version}/MergeIQ_#{version}_universal.dmg"
   name "MergeIQ"
@@ -17,6 +17,10 @@ cask "mergeiq" do
   app "MergeIQ.app"
   binary "#{appdir}/MergeIQ.app/Contents/MacOS/mergeiq"
 
+  postflight_steps do
+    run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{appdir}}/MergeIQ.app"]
+  end
+
   zap trash: [
     "~/Library/Application Support/dev.mergeiq.app",
     "~/Library/Application Support/MergeIQ",
@@ -28,11 +32,8 @@ cask "mergeiq" do
   ]
 
   caveats <<~EOS
-    MergeIQ is not signed or notarized yet, so macOS Gatekeeper may refuse to open it.
-    After installing, clear the quarantine attribute once:
-
-      xattr -dr com.apple.quarantine "#{appdir}/MergeIQ.app"
-
-    Or right-click the app in Applications and choose Open.
+    MergeIQ is not signed or notarized yet. This cask clears macOS's quarantine attribute for you,
+    so it opens normally after installing. If you downloaded the .dmg yourself instead, right-click
+    the app and choose Open the first time.
   EOS
 end
