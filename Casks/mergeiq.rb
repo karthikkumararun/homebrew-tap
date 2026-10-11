@@ -1,6 +1,6 @@
 cask "mergeiq" do
-  version "0.2.2"
-  sha256 "b43cdf443851499a3623a59853b255344c09eb9bd4d23e2b71f1db97663b9b90"
+  version "0.2.3"
+  sha256 "9d4ac47c2e25e27d711dc07ad16f79d7de4fc5a8f9cca2901522338f17d30b61"
 
   url "https://github.com/karthikkumararun/mergeIQ/releases/download/v#{version}/MergeIQ_#{version}_universal.dmg"
   name "MergeIQ"
