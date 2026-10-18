@@ -1,6 +1,6 @@
 cask "clew" do
-  version "0.1.0"
-  sha256 "1e9e8372d0db018fb105ef4e3ded1fcbbbf0e353b538403791738fb65bdd7e48"
+  version "0.2.0"
+  sha256 "de0aeb51eaa9dbf83d7cfbd0f2c942c8a5c8b6a54cf56ab616985b75a71cfe7a"
 
   url "https://github.com/karthikkumararun/clew/releases/download/v#{version}/Clew_#{version}_universal.dmg"
   name "Clew"
